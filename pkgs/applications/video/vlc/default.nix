@@ -60,6 +60,10 @@ stdenv.mkDerivation rec {
   # set the path to the compiler
   BUILDCC = "${stdenv.cc}/bin/gcc";
 
+  patches = [
+    ./http-add.patch
+  ];
+
   postPatch = ''
     substituteInPlace configure \
       --replace /bin/echo echo
